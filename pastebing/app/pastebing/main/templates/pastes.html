@@ -1,0 +1,32 @@
+{% extends "common/base.html" %}
+{% block content %}
+    <br>
+    <h1>Pastes</h1>
+    <p class="lead">Your <strong>securely stored</strong> secrets. Create a new paste <a href="{{ url_for('main.new_paste') }}">here</a>.</p>
+    <br>
+
+    {% for paste in pastes %}
+        <div class="card mb-3">
+            <div class="card-body">
+                {% if paste['title'] %}
+                    <h6 class="card-title">
+                        {{ paste['title'] }}
+                    </h6>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <pre>{{ paste['contents'] }}</pre>
+                </p>
+            </div>
+            <div class="card-body">
+                <a href="{{ url_for('main.raw_paste', paste_id=paste['id']) }}" class="card-link">Raw paste</a>
+            </div>
+            <div class="card-footer text-muted">
+                Posted at {{ paste['created_at'] }}
+            </div>
+        </div>
+    {% else %}
+        <i>No pastes found.</i>
+    {% endfor %}
+{% endblock %}

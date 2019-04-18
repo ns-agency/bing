@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web_service:
+    build: ./app
+    restart: unless-stopped
+    environment:
+      - FLAG=COMP{VFS}
+      - FLAG_SECRET=COMP{INVALID_SECRET}
+      - FLASK_CORE_CONFIG=/app/web/config.py
+      - FLASK_CORE_ISOLATE_TABLES=users,pastes
+      - FLASK_CORE_ENABLE_AUTH=false
+      - DB_CONNECTION_STRING=postgresql://pastebing:4e34134b-58ee-403a-9229-ddf2d66b0c45@database/pastebing
+      - PGPASSWORD=thisisahardpassword
+    ports:
+      - 0.0.0.0:8009:8000
+  database:
+    image: postgres:11-alpine

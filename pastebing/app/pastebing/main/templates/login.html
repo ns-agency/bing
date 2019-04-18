@@ -1,0 +1,24 @@
+{% extends "common/base.html" %}
+{% block content %}
+    <br>
+    <h1>Login</h1>
+    <p class="lead">Welcome back.</p>
+
+    <form method="POST">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+          <small id="usernameHelp" class="form-text text-muted">Your username won't be tied to your pastes.</small>
+        </div>
+
+         <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+          <small id="passwordHelp" class="form-text text-muted">Your password is stored with <strong>military grade encryption.</strong></small>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-primary">
+        </div>
+    </form>
+{% endblock %}

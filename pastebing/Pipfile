@@ -1,0 +1,35 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "*"
+
+[packages]
+appdirs = "==1.4.3"
+click = "==6.7"
+flask = "==0.12.1"
+itsdangerous = "==0.24"
+jinja2 = "==2.9.6"
+markupsafe = "==1.0"
+packaging = "==16.8"
+pyparsing = "==2.2.0"
+six = "==1.10.0"
+werkzeug = "==0.12.1"
+psutil = "==5.4.3"
+sqlalchemy = "*"
+dnspython = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
+requests = "*"
+psycopg2 = "*"
+flask-core = "~=1.0"
+pastebing = {path = "./app",editable = true}
+base58 = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true

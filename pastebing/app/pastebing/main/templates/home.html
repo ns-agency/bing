@@ -1,0 +1,51 @@
+{% extends "common/base.html" %}
+{% block content %}
+<br>
+<div style="text-align: center;">
+<h1>Pastebing</h1>
+<p class="lead">Revolutionise your secrets.</p>
+
+<p>Are you tired of leaking your secrets to the world? Feeling a little down in the dumps after shelling out for <strong>Pastebin <i>Pro</i></strong>? Never fear, <strong>Pastebing is here!</strong></p>
+
+<p>What is Pastebing I hear you ask? Why, its only the most <strong>distributed, cloud-ready and resilient</strong> secret sharing service ever invented!</p>
+
+<p>You can rest easy in the knowledge that your data is safe in our hands. We use <strong>military grade</strong> encryption and <strong>banking standard</strong> data protection practices.</p>
+
+<p>What're you waiting for? Revolutionise your secrets today.</p>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <blockquote class="blockquote text-center">
+              <p class="mb-0">With Pastebing, we haven't lost a single secret! We haven't been able to find them either, but that's irrelevant.</p>
+              <footer class="blockquote-footer">Zain Afzal - CTO @ Acme Inc</footer>
+            </blockquote>
+        </div>
+        <div class="col-sm">
+            <blockquote class="blockquote text-center">
+              <p class="mb-0">With military grade encryption, it doesn't matter if Pastebing gets hacked!</p>
+              <footer class="blockquote-footer">Sean Yeoh - Security Engineer @ A Legit Company Ltd</footer>
+            </blockquote>
+        </div>
+        <div class="col-sm">
+            <blockquote class="blockquote text-center">
+              <p class="mb-0">Banks are the most secure institutions, so I'm glad Pastebing is following in their footsteps.</p>
+              <footer class="blockquote-footer">Thomas - Chief Idea Officer @ &lt;redacted&gt;</footer>
+            </blockquote>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <a href="{{ url_for('main.register') }}" class="btn btn-info btn-lg btn-block">Register</a>
+        </div>
+
+        <div class="col-sm">
+            <a href="{{ url_for('main.login') }}" class="btn btn-success btn-lg btn-block">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

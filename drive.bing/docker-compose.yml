@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web_service:
+    build: ./app
+    restart: unless-stopped
+    links:
+      - database
+    environment:
+      - FLAG=COMP{REPLACE_ME}
+      - FLAG_SECRET=COMP{INVALID_SECRET}
+      - FLASK_CORE_CONFIG=/app/web/config.py
+      - FLASK_CORE_ENABLE_AUTH=false
+      - DB_CONNECTION_STRING=mysql://driveuser:4e34134344b-5834242a-9229-ddf2d6432426b0c45@database/drive
+      - PGPASSWORD=thisisahardpassword
+    ports:
+      - 0.0.0.0:8010:8000
+  database:
+    build: ./db
+    restart: on-failure
+ 

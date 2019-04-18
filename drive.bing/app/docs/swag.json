@@ -1,0 +1,134 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Welcome to the prism API, spying made easy",
+    "version": "1.0.0",
+    "title": "Prism API"
+  },
+  "host": "drive.bing.ns.agency",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Look",
+      "description": "Cheeky look at files"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/peek/{username}": {
+      "get": {
+        "tags": [
+          "Look"
+        ],
+        "summary": "List at all of the files for a user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The target user"
+          }
+        ],        
+        "description": "",
+        "operationId": "peekuser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/FileList"
+            }
+          },
+          "400": {
+            "description": "Invalid Username"
+          }
+        }
+      }
+    },
+    "/peek/file": {
+      "get": {
+        "tags": [
+          "Look"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "file_id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "The file ID"
+          }
+        ],
+        "summary": "Look at a specific file",
+        "description": "",
+        "operationId": "peekfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          "400": {
+            "description": "Invalid File id"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "FileList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
